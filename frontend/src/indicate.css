@@ -1,0 +1,105 @@
+.indicate-dots {
+    position: fixed;
+    counter-reset: a;
+    top:15%;
+    bottom: 0;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-line-pack: center;
+    align-content: center;
+    -ms-flex-align: center;
+    align-items: center;
+    flex-direction: column;
+    height: 450px;
+    margin: auto;
+    left: 40px;
+    z-index: 50;
+}
+
+@media screen and (max-width: 1600px){
+    .indicate-dots {
+        top: 25%;
+        left: 10px;
+    }
+}
+@media screen and (max-width: 594px){
+    .indicate-dots {
+        display: none;
+    }
+}
+
+
+.indicate-dots li:before {
+    content: "";
+    display: block;
+    font-size: 14px;
+    counter-increment: a;
+    content: "0" counter(a);
+    transition: all 0.3s ease;
+}
+
+.indicate-dots li a {
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    height: 40px;
+    right: 0;
+}
+
+.indicate-dots li:after {
+    content: "";
+    display: block;
+    margin: 0 auto;
+    width: 1px;
+    height: 0;
+    background-color: #747474;
+}
+
+.indicate-dots li.current {
+    color: #747474;
+}
+
+.indicate-dots li {
+    padding: 9px 0;
+    color: #fefefe;
+    position: relative;
+}
+
+.indicate-dots li:hover {
+    transition: all 0.3s ease;
+    color: #747474;
+}
+
+.indicate-dots li:last-child.current:after {
+    height: 70px;
+}
+
+.indicate-dots li.current:after {
+    margin: 6px auto -8px;
+    height: 88px;
+}
+
+.indicate-dots li:after {
+    content: "";
+    display: block;
+    margin: 0 auto;
+    width: 1px;
+    height: 0;
+    transition: all .3s ease;
+    background-color: #747474;
+}
+
+.indicate-dots li:last-child.current a:after {
+    width: 4px;
+    position: absolute;
+    bottom: -92px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    height: 4px;
+    background-color: #747474;
+    content: "";
+    border-radius: 50%;
+}

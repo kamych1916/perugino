@@ -1,0 +1,33 @@
+.footer {
+    position: fixed;
+    z-index: 99;
+    bottom: 2%;
+    left: 0;
+    max-width: 100%;
+}
+
+.footer .container {
+    width: auto;
+}
+
+.social {
+    font-size: 18px;
+}
+.social li {
+    padding-right: 15px;
+    display: inline-block;
+}
+
+.social li a {
+    color: #fff;
+    display: inline-block;
+}
+
+.fab {
+    font-family: Font Awesome\ 5 Brands;
+}
+
+.footer p.small {
+    font-size: 10px;
+    color: #fff;
+}
