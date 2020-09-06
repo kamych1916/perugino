@@ -1,7 +1,7 @@
 <template>
 <div>
     <div class="container">
-      <b-row class="mt-5 ">
+      <b-row class="mt-5 px-4">
         <b-col cols="10">
           <b-row>
             <h6>Привет! Мы компания Perugino!</h6>

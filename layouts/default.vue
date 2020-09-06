@@ -19,7 +19,7 @@ export default {
     };
   },
   mounted() {
-    setTimeout((document.body.style.overflowY = 'scroll', this.load = false), 0);
+    setTimeout((document.getElementsByTagName('html')[0].style.overflowY, this.load = false), 0);
   },
 };
 </script>  
@@ -35,6 +35,8 @@ html {
   -webkit-font-smoothing: antialiased;
   box-sizing: border-box;
   scroll-behavior: smooth;
+  overflow-x: hidden;
+  overflow-y: hidden;
 }
 body {
   background: #0d0d0d;
@@ -42,8 +44,6 @@ body {
   font-style: normal;
   font-weight: normal;
   font-size: 22px;
-  overflow-x: hidden;
-  overflow-y: hidden;
   color: #fff;
 }
 
@@ -107,5 +107,21 @@ body {
   100% {
     opacity: 0;
   }
+}
+
+@media screen and (max-width: 375px) {
+    html, body {
+        overflow-x: hidden !important;
+    }
+
+}
+
+@media screen and (max-width: 768px) {
+    html, body {
+        overflow-x: hidden !important;
+    }
+    .loading{
+      width: 100%;
+    }
 }
 </style>
