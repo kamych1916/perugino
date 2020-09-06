@@ -1,20 +1,32 @@
 <template>
   <div>
-    <Nuxt />
+    <transition  name="fadeOut" >
+      <div v-if="load" class="wrap-loading">
+        <div class="loading"></div>
+        <h4 class="loading-text">Загрузка...</h4>
+      </div>
+    </transition>
+    <div>
+      <Nuxt />
+    </div>
   </div>
 </template>
-
+<script>
+export default {
+  data() {
+    return {
+      load: true,
+    };
+  },
+  mounted() {
+    setTimeout((document.body.style.overflowY = 'scroll', this.load = false), 0);
+  },
+};
+</script>  
 <style>
 html {
-  font-family:
-    'Source Sans Pro',
-    -apple-system,
-    BlinkMacSystemFont,
-    'Segoe UI',
-    Roboto,
-    'Helvetica Neue',
-    Arial,
-    sans-serif;
+  font-family: "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, sans-serif;
   font-size: 16px;
   word-spacing: 1px;
   -ms-text-size-adjust: 100%;
@@ -22,41 +34,78 @@ html {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+body {
+  background: #0d0d0d;
+  font-family: "Helvetica-Black";
+  font-style: normal;
+  font-weight: normal;
+  font-size: 22px;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  color: #fff;
 }
 
+@font-face {
+  font-family: "Helvetica-Black";
+  src: url("~static/fonts/18985.otf") format("opentype");
+}
+@font-face {
+  font-family: "Ilisarniq-Black";
+  src: url("~static/fonts/Ilisarniq-Black.otf") format("opentype");
+}
+@font-face {
+  font-family: "Formular";
+  src: url("~static/fonts/Formular-Medium.ttf") format("opentype");
+}
 *,
 *::before,
 *::after {
   box-sizing: border-box;
   margin: 0;
 }
-
-.button--green {
-  display: inline-block;
-  border-radius: 4px;
-  border: 1px solid #3b8070;
-  color: #3b8070;
-  text-decoration: none;
-  padding: 10px 30px;
+.wrap-loading {
+  position: absolute;
+  top: 0;
+  z-index: 9999;
+  width: 102%;
+  height: 100vh;
+  background-color: #161618;
+  text-align: center;
+}
+.loading {
+  margin: 100px auto 0 auto;
+  width: 30%;
+  height: 60%;
+  background-image: url("~static/load.gif");
+  background-size: 100% 100%;
+}
+.loading-text {
+  font-family: Formular, sans-serif;
+  margin: 0 auto;
+}
+.fadeOut-enter-active {
+  animation: fadeOut 0.5s;
+}
+.fadeOut-leave-active {
+  animation: fadeOut 0.5s;
 }
 
-.button--green:hover {
-  color: #fff;
-  background-color: #3b8070;
+@keyframes fadeOut {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
-
-.button--grey {
-  display: inline-block;
-  border-radius: 4px;
-  border: 1px solid #35495e;
-  color: #35495e;
-  text-decoration: none;
-  padding: 10px 30px;
-  margin-left: 15px;
-}
-
-.button--grey:hover {
-  color: #fff;
-  background-color: #35495e;
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }
 </style>
