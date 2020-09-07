@@ -7,11 +7,13 @@
       </div>
     </transition>
     <div>
+      <div ref="cursor" class="cursor"></div>
       <Nuxt />
     </div>
   </div>
 </template>
 <script>
+
 export default {
   data() {
     return {
@@ -19,14 +21,32 @@ export default {
     };
   },
   mounted() {
-    setTimeout((document.getElementsByTagName('html')[0].style.overflowY, this.load = false), 0);
+    
+    setTimeout(() => {
+      document.getElementsByTagName('html')[0].style.overflowY = 'scroll';
+      this.load = false
+    }, 1000);
+
+    if(window.innerWidth>768){
+      const cursor = this.$refs.cursor;
+  
+      document.addEventListener('mousemove', e => {
+        cursor.setAttribute("style", "top: "+(e.pageY - 15)+"px; left: "+(e.pageX - 15)+"px;")
+      })
+  
+      document.addEventListener('click', () => {
+        cursor.classList.add("expand");
+  
+        setTimeout(() => {
+          cursor.classList.remove("expand");
+        }, 500)
+      })
+    }
   },
 };
 </script>  
 <style>
 html {
-  font-family: "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI",
-    Roboto, "Helvetica Neue", Arial, sans-serif;
   font-size: 16px;
   word-spacing: 1px;
   -ms-text-size-adjust: 100%;
@@ -37,14 +57,18 @@ html {
   scroll-behavior: smooth;
   overflow-x: hidden;
   overflow-y: hidden;
+  margin: 0;
+  padding: 0;
 }
 body {
   background: #0d0d0d;
-  font-family: "Helvetica-Black";
+  font-family: "Ilisarniq-Black", Formular;
   font-style: normal;
   font-weight: normal;
   font-size: 22px;
   color: #fff;
+  margin: 0;
+  padding: 0;
 }
 
 @font-face {
@@ -66,7 +90,7 @@ body {
   margin: 0;
 }
 .wrap-loading {
-  position: absolute;
+  position: fixed;
   top: 0;
   z-index: 9999;
   width: 102%;
@@ -123,5 +147,61 @@ body {
     .loading{
       width: 100%;
     }
+    .cursor{
+      display: none;
+    }
 }
+
+.cursor {
+    width: 40px;
+    height: 40px;
+    border: 1px solid white;
+    border-radius: 50%;
+    position: absolute;
+    z-index: 6;
+    pointer-events: none;
+}
+
+.cursor::after {
+    content: "";
+    width: 25px;
+    height: 25px;
+    position: absolute;
+    z-index: 6;
+    border: 8px solid gray;
+    border-radius: 50%;
+    opacity: .5;
+    top: -8px;
+    left: -8px;
+    animation: cursorAnim2 .5s infinite alternate;
+}
+
+@keyframes cursorAnim2 {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(.4);
+    }
+}
+
+@keyframes cursorAnim3 {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(3);
+    }
+    100% {
+        transform: scale(1);
+        opacity: 0;
+    }
+}
+
+.expand {
+    animation: cursorAnim3 .5s forwards;
+    border: 1px solid red;
+}
+
+
 </style>
