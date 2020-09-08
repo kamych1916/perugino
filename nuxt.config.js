@@ -49,6 +49,8 @@ export default {
   ** Nuxt.js modules
   */
   modules: [
+    // Or if you have custom options...
+    ['vue-scrollto/nuxt', { duration: 600 }],
     // Doc: https://bootstrap-vue.js.org
     'bootstrap-vue/nuxt',
     // Doc: https://axios.nuxtjs.org/usage

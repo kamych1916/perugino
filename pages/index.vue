@@ -25,16 +25,20 @@
             <b-row class="mt-5">
               <b-col>
                 <b-row class="d-flex justify-content-center">
-                  <nuxt-link to="/" style="text-decoration: underline; color: #fff">кейсы</nuxt-link>
+                  <div @click="show_sidebar = false, backdrop_sidebar= false">
+                    <nuxt-link to="/" v-scroll-to="{ el: '#case__wrap', offset: -200 }" style="text-decoration: underline; color: #fff" >кейсы</nuxt-link>
+                  </div>
                 </b-row>
                 <b-row class="d-flex justify-content-center mt-5">
-                  <nuxt-link to="/" style="text-decoration: underline; color: #fff">о нас</nuxt-link>
+                  <div @click="show_sidebar = false, backdrop_sidebar= false">
+                    <nuxt-link to="/" v-scroll-to="{ el: '#about-approach__wrap', offset: -200 }" style="text-decoration: underline; color: #fff">о нас</nuxt-link>
+                  </div>
                 </b-row>
+
                 <b-row class="d-flex justify-content-center mt-5">
-                  <nuxt-link to="/" style="text-decoration: underline; color: #fff">отзывы</nuxt-link>
-                </b-row>
-                <b-row class="d-flex justify-content-center mt-5">
-                  <nuxt-link to="/" style="text-decoration: underline; color: #fff">контакты</nuxt-link>
+                  <div @click="show_sidebar = false, backdrop_sidebar= false">
+                    <nuxt-link to="/" v-scroll-to="{ el: '#contact__wrap', offset: -200 }" style="text-decoration: underline; color: #fff">контакты</nuxt-link>
+                  </div>
                 </b-row>
               </b-col>
             </b-row>
@@ -50,7 +54,7 @@
     <!-- end header wrap -->
 
     <!-- start main wrap -->
-    <div class="container ">
+    <div class="container">
       <b-row class="mt-5 pt-5 d-flex justify-content-center">
         <h1 class="main-text">Помогаем бизнесу выделяться!</h1>
       </b-row>
@@ -70,21 +74,21 @@
             <h1
               class="scroll-text"
               :style="{transform: scroll_text_right }"
-            >DIGITAL AGENCY PERUGINO DIGITAL AGENCY PERUGINO</h1>
+            >DIGITAL AGENCY PERUGINO DIGITAL AGENCY PERUGINO DIGITAL AGENCY PERUGINO DIGITAL AGENCY PERUGINO</h1>
             <h1
               class="scroll-text-stroke"
               :style="{transform: scroll_text_right }"
-            >DIGITAL AGENCY PERUGINO DIGITAL AGENCY PERUGINO</h1>
+            >DIGITAL AGENCY PERUGINO DIGITAL AGENCY PERUGINO DIGITAL AGENCY PERUGINO DIGITAL AGENCY PERUGINO</h1>
           </div>
           <div class="wrap-stroke-2">
             <h1
               class="scroll-text"
               :style="{transform: scroll_text_left }"
-            >PERUGINO DIGITAL AGENCY PERUGINO PERUGINO DIGITAL AGENCY PERUGINO</h1>
+            >PERUGINO DIGITAL AGENCY PERUGINO PERUGINO DIGITAL AGENCY PERUGINO PERUGINO DIGITAL AGENCY PERUGINO PERUGINO DIGITAL AGENCY PERUGINO</h1>
             <h1
               class="scroll-text-stroke"
               :style="{transform: scroll_text_left }"
-            >PERUGINO DIGITAL AGENCY PERUGINO PERUGINO DIGITAL AGENCY PERUGINO</h1>
+            >PERUGINO DIGITAL AGENCY PERUGINO PERUGINO DIGITAL AGENCY PERUGINO PERUGINO DIGITAL AGENCY PERUGINO PERUGINO DIGITAL AGENCY PERUGINO</h1>
           </div>
         </div>
       </div>
@@ -92,14 +96,14 @@
     <!-- end main wrap -->
 
     <!-- start case wrap -->
-    <div>
+    <div id="case__wrap">
       <div class="container mt-5 pt-5 pl-0">
-        <div style="position:absolute; right: 30px">
-          <h1 data-aos="zoom-in" data-aos-duration="1000" style="position:absolute; right: 30px; top: -100px; font-size: 5em; font-family: Helvetica-Black; -webkit-text-stroke: 2px #fff; color: transparent" >КЕЙСЫ</h1>
-          <h1 data-aos="zoom-in" data-aos-duration="1100" style="position:absolute; right: 30px;  font-size: 5em; font-family: Helvetica-Black; " >КЕЙСЫ</h1>
-          <h1 data-aos="zoom-in" data-aos-duration="1200" style="position:absolute; right: 30px; top: 100px; font-size: 5em; font-family: Helvetica-Black; -webkit-text-stroke: 2px #fff; color: transparent" >КЕЙСЫ</h1>
+        <div class="case__headline">
+          <h1 data-aos="zoom-in" data-aos-duration="1000">КЕЙСЫ</h1>
+          <h1 data-aos="zoom-in" data-aos-duration="1100">КЕЙСЫ</h1>
+          <h1 data-aos="zoom-in" data-aos-duration="1200">КЕЙСЫ</h1>
         </div>
-
+        <div class="case__headline_mobile text-center">Наши кейсы</div>
         <div class="d-flex justify-content-start mt-5">
           <div data-aos="fade-up" data-aos-duration="1000" style="width: 600px; height: 400px; background-color: #92acc3"></div>
         </div>
@@ -108,15 +112,17 @@
         </div>
       </div>
     </div>
+    <!-- end case wrap -->
 
-    <div>
+    <!-- start about-approach -->
+    <div id="about-approach__wrap">
       <div class="container mt-5 pt-5 pl-0">
-        <div style="position:absolute; left: 30px">
-          <h1 data-aos="zoom-in" data-aos-duration="1000" style="width: fit-content; position:absolute; left: 30px; top: -100px; font-size: 5em; font-family: Helvetica-Black; -webkit-text-stroke: 2px #fff; color: transparent" >О&nbsp;НАС</h1>
-          <h1 data-aos="zoom-in" data-aos-duration="1100" style="width: fit-content; position:absolute; left: 30px;  font-size: 5em; font-family: Helvetica-Black; " >О&nbsp;НАС</h1>
-          <h1 data-aos="zoom-in" data-aos-duration="1200" style="width: fit-content; position:absolute; left: 30px; top: 100px; font-size: 5em; font-family: Helvetica-Black; -webkit-text-stroke: 2px #fff; color: transparent" >О&nbsp;НАС</h1>
+        <div class="about-approach__headline" style="">
+          <h1 data-aos="zoom-in" data-aos-duration="1000" >О&nbsp;НАС</h1>
+          <h1 data-aos="zoom-in" data-aos-duration="1100" >О&nbsp;НАС</h1>
+          <h1 data-aos="zoom-in" data-aos-duration="1200" >О&nbsp;НАС</h1>
         </div>
-
+        <div class="about-approach__headline_mobile text-center mb-5">Как мы работаем</div>
         <div  style="position: relative">
           <div data-aos="zoom-in" data-aos-duration="1000" class="about-approach__figure">  
             <svg  width="100%" viewBox="0 0 1216 1216" fill="none" xmlns="http://www.w3.org/2000/svg" class="outer-circle" style="z-index: 2; position: absolute; left: 0px; height: 100%">
@@ -130,7 +136,7 @@
               <circle cx="445" cy="445" r="369.5" stroke="white" stroke-opacity="0.02"></circle>
             </svg>
           </div>
-          <div class="about-approach__item about-approach__item--top">
+          <div class="about-approach__item about-approach__item--top px-3">
             <h4 class="title h4">Стратегия</h4> 
             <p>Исследуем компанию, её&nbsp;аудиторию
               и&nbsp;конкурентов. Находим и&nbsp;усиливаем конкурентные преимущества на&nbsp;уровне
@@ -139,7 +145,7 @@
               на&nbsp;несколько лет вперед.
             </p>
           </div>
-          <div class="about-approach__item about-approach__item--left">
+          <div class="about-approach__item about-approach__item--left px-3">
             <h4 class="title h4">Продажи</h4> 
             <p>
               Считаем рентабельность каждого канала и&nbsp;перенаправляем инвестиции только в&nbsp;прибыльные.
@@ -147,19 +153,19 @@
               пишем скрипты для общения с&nbsp;клиентами.
             </p>
           </div>
-          <div class="about-approach__item about-approach__item--center">
+          <div class="about-approach__item about-approach__item--center px-3">
             <h4 class="title h4">
               Perugino
             </h4>
           </div>
-          <div class="about-approach__item about-approach__item--right">
+          <div class="about-approach__item about-approach__item--right px-3">
             <h4 class="title h4">Измеримое продвижение</h4> 
             <p>Задействуем множество каналов и&nbsp;отслеживаем эффективность каждого. Используем много
             разных каналов: баннеры, контекстные объявления, посты в&nbsp;соцсетях, публикации в&nbsp;СМИ.
             Делаем сильный контент, который вызывает желание купить.
             </p>
           </div>
-          <div  class="about-approach__item about-approach__item--bottom">
+          <div  class="about-approach__item about-approach__item--bottom px-3">
             <h4 class="title h4">Бренд</h4> 
             <p>Накапливаем цифровую аудиторию бренда и&nbsp;ведём с&nbsp;ней регулярную коммуникацию. Для
             этого создаём единый стиль и&nbsp;даём полезную информацию о&nbsp;продукте, которые
@@ -171,8 +177,31 @@
       </div>
     </div>
         
-    <!-- end case wrap -->
+    <!-- end about-approach -->
 
+    <!-- start contact us wrap -->
+    <div id="contact__wrap">
+      <div class="container mt-5 pt-5 pl-0" style="min-height: 60vh">
+        <div class="contact__headline">
+          <h1 data-aos="zoom-in" data-aos-duration="1000">КОНТАКТЫ</h1>
+          <h1 data-aos="zoom-in" data-aos-duration="1100">КОНТАКТЫ</h1>
+          <h1 data-aos="zoom-in" data-aos-duration="1200">КОНТАКТЫ</h1>
+        </div>
+        <div class="contact__headline_mobile text-center mb-5">Наши контакты</div>
+        <div class="d-flex justify-content-start mt-5 px-3">
+          <div data-aos="fade-up" data-aos-duration="1000" style="width: 600px; height: 400px; ">
+            <p>Хотите улучшить свой проект? В кратчайшие сроки решим Ваши потребности - пишите нам нам почту (отвечаем быстро)! </p> 
+            <a href="mailto:krakhimov.it@gmail.com?subject=Давайте%20работать%20вместе!">
+              <b-button class="px-5 contact_btn" squared>отправить письмо</b-button>
+            </a> 
+            <div class="pt-5">
+              <p class="mb-0" style="color: #ccc; font-size: 12px">Design and development by <a style="color: #ccc; text-decoration: underline" href="">Kamol Rakhimov</a> </p>
+              <p class="mb-0" style="color: #ccc; font-size: 12px">@2020 All rights reserved</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -238,84 +267,51 @@ export default {
 </script>
 
 <style>
-
-/* wrap about us*/
-.about-approach__item {
-    width: 30%;
-    position: absolute;
-    background: #0d0d0d;
-    font-size: 0.6em;
+.contact_btn {
+  background-color: transparent; 
+  border-color: #fff;
+  transition: 0.6s;
 }
-.about-approach__item--top {
-    width: 35%;
-    left: 50%;
-    top: 4%;
-    transform: translate3d(-50%,0,0);
-    padding: 15px 60px 120px;
+.contact_btn:hover{
+  background-color: #fff; 
+  color: black
 }
-.about-approach__item--left {
-    top: 48%;
-    transform: translate3d(0,-50%,0);
-    left: 6%;
-    padding: 85px 8% 85px 0;
+.contact__headline{
+  position:absolute;
+  right: 30px
 }
-.about-approach__item--center{
-    top: 48%;
-    transform: translate3d(0,-50%,0);
-    left: 44%;
-    padding: 85px 8% 85px 0;
+.contact__headline_mobile{
+  display: none;
 }
-.about-approach__item--right {
-    top: 48%;
-    transform: translate3d(0,-50%,0);
-    padding: 85px 0;
-    right: 2%;
-    width: 25%;
+.contact__headline h1:nth-child(1){
+  position:absolute; right: 30px; top: -100px; font-size: 5em; font-family: Helvetica-Black; -webkit-text-stroke: 2px #fff; color: transparent
 }
-.about-approach__item--bottom {
-    left: 50%;
-    bottom: 7%;
-    transform: translate3d(-50%,0,0);
-    padding: 15px 5%;
-    width: 30%;
+.contact__headline h1:nth-child(2){
+  position:absolute; right: 30px; top: 0; font-size: 5em; font-family: Helvetica-Black;
 }
-@media screen and (max-width: 1024px){
-  .about-approach .outer-circle {
-      display: none;
+.contact__headline h1:nth-child(3){
+  position:absolute; right: 30px; top: 100px; font-size: 5em; font-family: Helvetica-Black; -webkit-text-stroke: 2px #fff; color: transparent
+}
+@media screen and (max-width: 1448px){
+  .contact__headline h1:nth-child(1){
+    position:absolute; right: 30px; top: -120px; font-size: 3em;
   }
-  .about-approach .inner-circle {
-    padding: 0;
+  .contact__headline h1:nth-child(2){
+    position:absolute; right: 30px; top: -60px; font-size: 3em; 
+  }
+  .contact__headline h1:nth-child(3){
+    position:absolute; right: 30px; top: 0; font-size: 3em;
   }
 }
-@media screen and (max-width: 800px){
-  .about-approach__item--top {
-    left: 0;
-    top: 10%;
+/* исправить css - везде много говна, убрать дублирование */
+@media screen and (max-width: 768px){
+  .contact__headline{
+    display: none;
   }
-  .about-approach__item--bottom, .about-approach__item--left, .about-approach__item--right, .about-approach__item--top {
-      width: 44%;
-      padding: 10px;
-      transform: translateZ(0);
+  .contact__headline_mobile{
+    display: block;
   }
 }
-@media (max-width: 661px){
-  .about-approach__figure {
-      display: none;
-  }
-  .about-approach__item--bottom, .about-approach__item--left, .about-approach__item--right, .about-approach__item--top {
-    width: 100%;
-    left: 0;
-    top: 0;
-  }
-  .about-approach__item {
-      width: 100%;
-      position: relative;
-  }
-  .about-approach__item+.about-approach__item {
-    margin-top: 90px;
-  }
-}
-
 /* wrap hedaer  */
 .header-wrap {
   position: fixed;
@@ -387,12 +383,12 @@ export default {
 .wrap-canvas .wrap-stroke-1 {
   position: absolute;
   bottom: 50%;
-  left: -150%;
+  left: -250%;
 }
 .wrap-canvas .wrap-stroke-2 {
   position: absolute;
   bottom: 30%;
-  left: -150%;
+  left: -250%;
 }
 .scroll-text {
   z-index: -2;
@@ -450,6 +446,160 @@ export default {
   100% {
     opacity: 0;
     transform: translateX(20px);
+  }
+}
+/* wrap case */
+.case__headline{
+  position:absolute;
+  right: 30px
+}
+.case__headline_mobile{
+  display: none;
+}
+.case__headline h1:nth-child(1){
+  position:absolute; right: 30px; top: -100px; font-size: 5em; font-family: Helvetica-Black; -webkit-text-stroke: 2px #fff; color: transparent
+}
+.case__headline h1:nth-child(2){
+  position:absolute; right: 30px; top: 0; font-size: 5em; font-family: Helvetica-Black;
+}
+.case__headline h1:nth-child(3){
+  position:absolute; right: 30px; top: 100px; font-size: 5em; font-family: Helvetica-Black; -webkit-text-stroke: 2px #fff; color: transparent
+}
+@media screen and (max-width: 1448px){
+  .case__headline h1:nth-child(1){
+    position:absolute; right: 30px; top: -120px; font-size: 3em;
+  }
+  .case__headline h1:nth-child(2){
+    position:absolute; right: 30px; top: -60px; font-size: 3em; 
+  }
+  .case__headline h1:nth-child(3){
+    position:absolute; right: 30px; top: 0; font-size: 3em;
+  }
+}
+@media screen and (max-width: 768px){
+  .case__headline{
+    display: none;
+  }
+  .case__headline_mobile{
+    display: block;
+  }
+
+}
+
+
+
+
+/* wrap about us*/
+.about-approach__headline{
+  position:absolute; left: 30px
+}
+.about-approach__headline_mobile{
+  display: none;
+}
+.about-approach__headline h1:nth-child(1){
+  width: fit-content; position:absolute; left: 30px; top: -100px; font-size: 5em; font-family: Helvetica-Black; -webkit-text-stroke: 2px #fff; color: transparent
+}
+.about-approach__headline h1:nth-child(2){
+  width: fit-content; position:absolute; left: 30px;  font-size: 5em; font-family: Helvetica-Black;
+}
+.about-approach__headline h1:nth-child(3){
+  width: fit-content; position:absolute; left: 30px; top: 100px; font-size: 5em; font-family: Helvetica-Black; -webkit-text-stroke: 2px #fff; color: transparent
+}
+@media screen and (max-width: 1448px){
+  .about-approach__headline h1:nth-child(1){
+    position:absolute; right: 30px; top: -120px; font-size: 3em;
+  }
+  .about-approach__headline h1:nth-child(2){
+    position:absolute; right: 30px; top: -60px; font-size: 3em; 
+  }
+  .about-approach__headline h1:nth-child(3){
+    position:absolute; right: 30px; top: 0; font-size: 3em;
+  }
+}
+@media screen and (max-width: 768px){
+  .about-approach__headline{
+    display: none;
+  }
+  .about-approach__headline_mobile{
+    display: block;
+  }
+}
+.about-approach__item {
+    width: 30%;
+    position: absolute;
+    background: #0d0d0d;
+    font-size: 0.6em;
+}
+.about-approach__item--top {
+    width: 35%;
+    left: 50%;
+    top: 4%;
+    transform: translate3d(-50%,0,0);
+    padding: 15px 60px 120px;
+}
+.about-approach__item--left {
+    top: 48%;
+    transform: translate3d(0,-50%,0);
+    left: 6%;
+    padding: 85px 8% 85px 0;
+}
+.about-approach__item--center{
+    top: 48%;
+    transform: translate3d(0,-50%,0);
+    left: 44%;
+    padding: 85px 8% 85px 0;
+}
+.about-approach__item--right {
+    top: 48%;
+    transform: translate3d(0,-50%,0);
+    padding: 85px 0;
+    right: 2%;
+    width: 25%;
+}
+.about-approach__item--bottom {
+    left: 50%;
+    bottom: 7%;
+    transform: translate3d(-50%,0,0);
+    padding: 15px 5%;
+    width: 30%;
+}
+@media screen and (max-width: 1024px){
+  .about-approach .outer-circle {
+      display: none;
+  }
+  .about-approach .inner-circle {
+    padding: 0;
+  }
+}
+@media screen and (max-width: 800px){
+  .about-approach__item--top {
+    left: 0;
+    top: 10%;
+  }
+  .about-approach__item--bottom, .about-approach__item--left, .about-approach__item--right, .about-approach__item--top {
+      width: 44%;
+      padding: 10px;
+      transform: translateZ(0);
+  }
+}
+@media (max-width: 768px){
+  .about-approach__figure {
+    display: none;
+  }
+  .about-approach__item--center{
+    display: none;
+  }
+  .about-approach__item--bottom, .about-approach__item--left, .about-approach__item--right, .about-approach__item--top {
+    width: 100%;
+    left: 0;
+    top: 0;
+  }
+  .about-approach__item {
+      width: 100%;
+      position: relative;
+  }
+  .about-approach__item+.about-approach__item {
+    margin-top: 90px;
   }
 }
 </style>
