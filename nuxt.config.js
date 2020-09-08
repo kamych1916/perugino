@@ -11,15 +11,22 @@ export default {
   ** See https://nuxtjs.org/api/configuration-head
   */
   head: {
-    title: process.env.npm_package_name || '',
+    title: 'Perugino — digital studio | Branding & Websites & Marketing',
     meta: [
       { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0' },
-      { hid: 'description', name: 'description', content: process.env.npm_package_description || '' },
+      { name: 'viewport', content: 'width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0'},
+      { property: 'og:url', content: 'http://perugino.club/'},
+      { property: 'og:title', content: 'Perugino — digital studio | Branding & Websites & Marketing'},
+      { property: 'og:description', content: 'Мы — digital студия, которая помогает бзнесу выделяться, разрабатываем качественный продукт. Брендинг & Маркетинг & Веб-сайты' },
+      { property: 'og:type', content: 'website' },
+      { property: 'og:image', content: 'http://krakhimov.site/_nuxt/img/heading__img.89f6abe.png'},
+
+      { property: 'twitter:title', content: 'Perugino — digital studio | Branding & Websites & Marketing'},
+      { property: 'twitter:description', content: 'Мы — digital студия, которая помогает бзнесу выделяться, разрабатываем качественный продукт. Брендинг & Маркетинг & Веб-сайты' },
+      { property: 'twitter:image', content: 'http://krakhimov.site/_nuxt/img/heading__img.89f6abe.png'},
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      // { rel="stylesheet", type="text/css", href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css"}
     ]
   },
   /*

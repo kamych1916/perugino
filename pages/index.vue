@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div style="overflow: hidden">
     <!-- start header wrap -->
     <div class="header-wrap pl-3 pr-3 py-4" style="background-color: #0d0d0d;">
       <div class="header-front">
@@ -103,7 +103,7 @@
           <h1 data-aos="zoom-in" data-aos-duration="1100">КЕЙСЫ</h1>
           <h1 data-aos="zoom-in" data-aos-duration="1200">КЕЙСЫ</h1>
         </div>
-        <div class="case__headline_mobile text-center">Наши кейсы</div>
+        <div data-aos="fade-up" data-aos-duration="1000" class="case__headline_mobile text-center">Наши кейсы</div>
         <div class="d-flex justify-content-start mt-5">
           <div data-aos="fade-up" data-aos-duration="1000" style="width: 600px; height: 400px; background-color: #92acc3"></div>
         </div>
@@ -122,7 +122,7 @@
           <h1 data-aos="zoom-in" data-aos-duration="1100" >О&nbsp;НАС</h1>
           <h1 data-aos="zoom-in" data-aos-duration="1200" >О&nbsp;НАС</h1>
         </div>
-        <div class="about-approach__headline_mobile text-center mb-5">Как мы работаем</div>
+        <div data-aos="fade-up" data-aos-duration="1000" class="about-approach__headline_mobile text-center mb-5">Как мы работаем</div>
         <div  style="position: relative">
           <div data-aos="zoom-in" data-aos-duration="1000" class="about-approach__figure">  
             <svg  width="100%" viewBox="0 0 1216 1216" fill="none" xmlns="http://www.w3.org/2000/svg" class="outer-circle" style="z-index: 2; position: absolute; left: 0px; height: 100%">
@@ -178,7 +178,7 @@
     </div>
         
     <!-- end about-approach -->
-
+  
     <!-- start contact us wrap -->
     <div id="contact__wrap">
       <div class="container mt-5 pt-5 pl-0" style="min-height: 60vh">
@@ -187,7 +187,7 @@
           <h1 data-aos="zoom-in" data-aos-duration="1100">КОНТАКТЫ</h1>
           <h1 data-aos="zoom-in" data-aos-duration="1200">КОНТАКТЫ</h1>
         </div>
-        <div class="contact__headline_mobile text-center mb-5">Наши контакты</div>
+        <div data-aos="fade-up" data-aos-duration="1000" class="contact__headline_mobile text-center mb-5">Наши контакты</div>
         <div class="d-flex justify-content-start mt-5 px-3">
           <div data-aos="fade-up" data-aos-duration="1000" style="width: 600px; height: 400px; ">
             <p>Хотите улучшить свой проект? В кратчайшие сроки решим Ваши потребности - пишите нам нам почту (отвечаем быстро)! </p> 
@@ -195,7 +195,7 @@
               <b-button class="px-5 contact_btn" squared>отправить письмо</b-button>
             </a> 
             <div class="pt-5">
-              <p class="mb-0" style="color: #ccc; font-size: 12px">Design and development by <a style="color: #ccc; text-decoration: underline" href="">Kamol Rakhimov</a> </p>
+              <p class="mb-0" style="color: #ccc; font-size: 12px">Design and development by <a style="color: #ccc; text-decoration: underline" href="https://www.instagram.com/kamol1916/">Kamol Rakhimov</a> </p>
               <p class="mb-0" style="color: #ccc; font-size: 12px">@2020 All rights reserved</p>
             </div>
           </div>
@@ -209,6 +209,7 @@
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { ModelGltf } from "vue-3d-model";
+// import ogImage from '~static/heading__img.png';
 export default {
   components: { ModelGltf },
   data() {
@@ -336,7 +337,7 @@ export default {
   overflow-y: auto;
   flex-direction: column;
   position: fixed !important;
-  z-index: 4;
+  z-index: 5;
   top: 0;
   height: 100vh;
   width: 300px;
@@ -350,15 +351,15 @@ export default {
 }
 .wrap-backdrop-sidebar {
   position: absolute;
-  top: -50px;
+
 }
 .backdrop-sidebar {
   position: fixed;
-  top: 0;
+  top: -100px;
   left: -120px;
-  z-index: 3;
+  z-index: 4;
   width: 110vw;
-  height: 100vh;
+  height: 120vh;
   opacity: 0.3;
   transition: ease 0.3s;
   background-color: #2e343a !important;
