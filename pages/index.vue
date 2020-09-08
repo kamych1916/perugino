@@ -231,7 +231,8 @@ export default {
   },
   created() {
     if (process.client) {
-      AOS.init({ disable: "phone" });
+      // AOS.init({ disable: "phone" });
+      AOS.init();
     }
   },
   mounted() {
@@ -533,32 +534,32 @@ export default {
 .about-approach__item--top {
     width: 35%;
     left: 50%;
-    top: 4%;
+    top: 10%;
     transform: translate3d(-50%,0,0);
     padding: 15px 60px 120px;
 }
 .about-approach__item--left {
-    top: 48%;
+    top: 50%;
     transform: translate3d(0,-50%,0);
     left: 6%;
     padding: 85px 8% 85px 0;
 }
 .about-approach__item--center{
-    top: 48%;
+    top: 50%;
     transform: translate3d(0,-50%,0);
     left: 44%;
     padding: 85px 8% 85px 0;
 }
 .about-approach__item--right {
-    top: 48%;
+    top: 50%;
     transform: translate3d(0,-50%,0);
     padding: 85px 0;
     right: 2%;
-    width: 25%;
+    width: 33%;
 }
 .about-approach__item--bottom {
     left: 50%;
-    bottom: 7%;
+    bottom: 10%;
     transform: translate3d(-50%,0,0);
     padding: 15px 5%;
     width: 30%;
