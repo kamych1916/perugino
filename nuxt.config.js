@@ -15,18 +15,24 @@ export default {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0'},
+      
+      { name: "robots", content: "index, follow"},
+
       { property: 'og:url', content: 'http://perugino.club/'},
       { property: 'og:title', content: 'Perugino — digital studio | Branding & Websites & Marketing'},
-      { property: 'og:description', content: 'Мы — digital студия, которая помогает бзнесу выделяться, разрабатываем качественный продукт. Брендинг & Маркетинг & Веб-сайты' },
+      { property: 'og:description', content: 'Мы — digital студия, которая помогает бизнесу выделяться, разрабатываем качественный продукт. Брендинг & Маркетинг & Веб-сайты' },
       { property: 'og:type', content: 'website' },
-      { property: 'og:image', content: 'http://krakhimov.site/_nuxt/img/heading__img.89f6abe.png'},
+      { property: 'og:image:type', content:'image/png'},
+      { property: 'og:image', content: 'http://perugino.club/heading__img.png'},
+
 
       { property: 'twitter:title', content: 'Perugino — digital studio | Branding & Websites & Marketing'},
-      { property: 'twitter:description', content: 'Мы — digital студия, которая помогает бзнесу выделяться, разрабатываем качественный продукт. Брендинг & Маркетинг & Веб-сайты' },
-      { property: 'twitter:image', content: 'http://krakhimov.site/_nuxt/img/heading__img.89f6abe.png'},
+      { property: 'twitter:description', content: 'Мы — digital студия, которая помогает бизнесу выделяться, разрабатываем качественный продукт. Брендинг & Маркетинг & Веб-сайты' },
+      { property: 'twitter:image', content: 'http://perugino.club/heading__img.png'},
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { itemprop: 'thumbnailUrl', href: 'http://perugino.club/heading__img.png'}
     ]
   },
   /*
