@@ -153,8 +153,9 @@ body {
 }
 
 .cursor {
-    width: 40px;
-    height: 40px;
+    width: 45px;
+    height: 45px;
+    margin-left: -5px;
     border: 1px solid white;
     border-radius: 50%;
     position: absolute;

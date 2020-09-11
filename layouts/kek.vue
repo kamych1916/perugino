@@ -3,7 +3,7 @@
     <!-- start header wrap -->
     <div class="header-wrap pl-3 pr-3 py-4" style="background-color: #0d0d0d;">
       <div class="header-front">
-        <div class="header-front-text">Perugino</div>
+        <div class="header-front-text ml-2">Perugino</div>
         <b-button variant="white" @click="show_sidebar = true, backdrop_sidebar = true">
           <b-icon style="color: white; " icon="border-style" aria-hidden="true"></b-icon>
         </b-button>
@@ -97,23 +97,22 @@
 
     <!-- start case wrap -->
     <div id="case__wrap">
-      <div class="container mt-5 pt-5 pl-0 ">
+      <div class="container mt-5 pt-5 pl-0">
         <div class="case__headline">
           <h1 data-aos="zoom-in" data-aos-duration="1000">КЕЙСЫ</h1>
           <h1 data-aos="zoom-in" data-aos-duration="1100">КЕЙСЫ</h1>
           <h1 data-aos="zoom-in" data-aos-duration="1200">КЕЙСЫ</h1>
         </div>
-
         <div data-aos="fade-up" data-aos-duration="1000" class="case__headline_mobile text-center">Наши кейсы</div>
         <div class="d-flex justify-content-start mt-5">
-          <div data-aos="fade-up" data-aos-duration="1000" style="background-color: #92acc3; cursor: pointer !important">
-            <img ref="case__web" src="web.png"  style=" width: 600px; height: 400px; background-size: cover; image-rendering: -webkit-optimize-contrast;" alt="">
+          <div data-aos="fade-up" data-aos-duration="1000" style="background-color: #92acc3">
+            <img src="1_nvrGCFrGRwyagMQ0V3q_iA.png"  style=" width: 600px; height: 400px; background-size: cover; image-rendering: -webkit-optimize-contrast;" alt="">
             <div style="position: absolute; font-family: Formular, sans-serif; font-size: 0.7em">веб-сайты →</div>
           </div>
         </div>
         <div class="d-flex justify-content-end mt-5 pt-5">
-          <div data-aos="fade-up" data-aos-duration="1000" style="background-color: #92acc3;  cursor: pointer !important">
-            <img ref="case__smm" src="smm.png" style=" width: 600px; height: 400px; background-size: cover; image-rendering: -webkit-optimize-contrast;" alt="">
+          <div data-aos="fade-up" data-aos-duration="1000" style="background-color: #92acc3">
+            <img src="1_oKT5nOaKgVjkAiOkweGlxg.png" style=" width: 600px; height: 400px; background-size: cover; image-rendering: -webkit-optimize-contrast;" alt="">
             <div style="position: absolute; font-family: Formular, sans-serif; font-size: 0.7em">маркетинг →</div>
           </div>
         </div>
@@ -209,8 +208,6 @@
         </div>
       </div>
     </div>
-  <div ref="cursor__on_cases" class="cursor__on_cases"></div>
-    
   </div>
 </template>
 
@@ -247,30 +244,8 @@ export default {
   },
   mounted() {
     window.addEventListener("scroll", this.handleScroll);
+
     setTimeout((this.stoke_vsb = true), 3000);
-    if(window.innerWidth>768){
-      const cursor__on_cases = this.$refs.cursor__on_cases;
-      const case__web = this.$refs.case__web;
-      const case__smm = this.$refs.case__smm;
-
-      document.addEventListener('mousemove', e => {
-        cursor__on_cases.setAttribute("style", "top: "+(e.pageY - 15)+"px; left: "+(e.pageX - 15)+"px;")
-      })
-      case__web.addEventListener('mouseenter', e => {
-        cursor__on_cases.classList.add("active");
-      })
-      case__web.addEventListener('mouseleave', e => {
-        cursor__on_cases.classList.remove("active");
-      })
-
-      case__smm.addEventListener('mouseenter', e => {
-        cursor__on_cases.classList.add("active");
-      })
-      case__smm.addEventListener('mouseleave', e => {
-        cursor__on_cases.classList.remove("active");
-      })
-    }
-
   },
   methods: {
     handleScroll() {
@@ -300,26 +275,6 @@ export default {
 </script>
 
 <style>
-
-.cursor__on_cases {
-    width: 80px;
-    height: 80px;
-    margin-left: -20px;
-    margin-top: -20px;
-    border: 1px solid white;
-    border-radius: 50%;
-    position: absolute;
-    z-index: 6;
-    pointer-events: none;
-    opacity: 0;
-}
-
-.active{
-  background-image: url('~static/beh.png');
-  background-size: cover;
-  opacity: 1;
-}
-
 .contact_btn {
   background-color: transparent; 
   border-color: #fff;
