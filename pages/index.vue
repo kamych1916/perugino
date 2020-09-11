@@ -1,9 +1,10 @@
 <template>
   <div style="overflow: hidden">
+    
     <!-- start header wrap -->
     <div class="header-wrap pl-3 pr-3 py-4" style="background-color: #0d0d0d;">
       <div class="header-front">
-        <div class="header-front-text">Perugino</div>
+        <div class="header-front-text pl-2">Perugino</div>
         <b-button variant="white" @click="show_sidebar = true, backdrop_sidebar = true">
           <b-icon style="color: white; " icon="border-style" aria-hidden="true"></b-icon>
         </b-button>
@@ -34,7 +35,11 @@
                     <nuxt-link to="/" v-scroll-to="{ el: '#about-approach__wrap', offset: -200 }" style="text-decoration: underline; color: #fff">о нас</nuxt-link>
                   </div>
                 </b-row>
-
+                <b-row class="d-flex justify-content-center mt-5">
+                  <div @click="show_sidebar = false, backdrop_sidebar= false">
+                    <nuxt-link to="/" v-scroll-to="{ el: '#price__wrap', offset: -200 }" style="text-decoration: underline; color: #fff">прайс лист</nuxt-link>
+                  </div>
+                </b-row>
                 <b-row class="d-flex justify-content-center mt-5">
                   <div @click="show_sidebar = false, backdrop_sidebar= false">
                     <nuxt-link to="/" v-scroll-to="{ el: '#contact__wrap', offset: -200 }" style="text-decoration: underline; color: #fff">контакты</nuxt-link>
@@ -53,6 +58,8 @@
     </div>
     <!-- end header wrap -->
 
+  
+  
     <!-- start main wrap -->
     <div class="container">
       <b-row class="mt-5 pt-5 d-flex justify-content-center">
@@ -95,6 +102,8 @@
     </div>
     <!-- end main wrap -->
 
+  
+  
     <!-- start case wrap -->
     <div id="case__wrap">
       <div class="container mt-5 pt-5 pl-0 ">
@@ -105,32 +114,34 @@
         </div>
 
         <div data-aos="fade-up" data-aos-duration="1000" class="case__headline_mobile text-center">Наши кейсы</div>
-        <div class="d-flex justify-content-start mt-5">
-          <div data-aos="fade-up" data-aos-duration="1000" style="background-color: #92acc3; cursor: pointer !important">
-            <img ref="case__web" src="web.png"  style=" width: 600px; height: 400px; background-size: cover; image-rendering: -webkit-optimize-contrast;" alt="">
-            <div style="position: absolute; font-family: Formular, sans-serif; font-size: 0.7em">веб-сайты →</div>
+        <div class="d-flex justify-content-start mt-5 ml-3">
+          <div data-aos="fade-up" data-aos-duration="1000" style="cursor: pointer !important">
+            <img ref="case__web" src="web.png" class="case__img" alt="">
+            <div class="case__text">веб-сайты →</div>
           </div>
         </div>
-        <div class="d-flex justify-content-end mt-5 pt-5">
-          <div data-aos="fade-up" data-aos-duration="1000" style="background-color: #92acc3;  cursor: pointer !important">
-            <img ref="case__smm" src="smm.png" style=" width: 600px; height: 400px; background-size: cover; image-rendering: -webkit-optimize-contrast;" alt="">
-            <div style="position: absolute; font-family: Formular, sans-serif; font-size: 0.7em">маркетинг →</div>
+        <div class="d-flex justify-content-end mt-5 ml-3 pt-5">
+          <div data-aos="fade-up" data-aos-duration="1000" style="cursor: pointer !important">
+            <img ref="case__smm" src="smm.png" class="case__img" alt="">
+            <div class="case__text">маркетинг →</div>
           </div>
         </div>
       </div>
     </div>
     <!-- end case wrap -->
 
+  
+  
     <!-- start about-approach -->
     <div id="about-approach__wrap">
       <div class="container mt-5 pt-5 pl-0">
-        <div class="about-approach__headline" style="">
+        <div class="about-approach__headline">
           <h1 data-aos="zoom-in" data-aos-duration="1000" >О&nbsp;НАС</h1>
           <h1 data-aos="zoom-in" data-aos-duration="1100" >О&nbsp;НАС</h1>
           <h1 data-aos="zoom-in" data-aos-duration="1200" >О&nbsp;НАС</h1>
         </div>
         <div data-aos="fade-up" data-aos-duration="1000" class="about-approach__headline_mobile text-center mb-5">Как мы работаем</div>
-        <div  style="position: relative">
+        <div style="position: relative">
           <div data-aos="zoom-in" data-aos-duration="1000" class="about-approach__figure">  
             <svg  width="100%" viewBox="0 0 1216 1216" fill="none" xmlns="http://www.w3.org/2000/svg" class="outer-circle" style="z-index: 2; position: absolute; left: 0px; height: 100%">
               <circle cx="608" cy="608" r="607.5" stroke="white" stroke-opacity="0.1"></circle>
@@ -143,38 +154,38 @@
               <circle cx="445" cy="445" r="369.5" stroke="white" stroke-opacity="0.02"></circle>
             </svg>
           </div>
-          <div class="about-approach__item about-approach__item--top px-3">
-            <h4 class="title h4">Стратегия</h4> 
-            <p>Исследуем компанию, её&nbsp;аудиторию
+          <div  class="about-approach__item about-approach__item--top px-3">
+            <h4  data-aos="zoom-in" class="title h4">Стратегия</h4> 
+            <p  data-aos="zoom-in">Исследуем компанию, её&nbsp;аудиторию
               и&nbsp;конкурентов. Находим и&nbsp;усиливаем конкурентные преимущества на&nbsp;уровне
               бренда, продукта и&nbsp;потребителя. Проектируем комплексный маркетинг
               и&nbsp;прогнозируем его прибыльность
               на&nbsp;несколько лет вперед.
             </p>
           </div>
-          <div class="about-approach__item about-approach__item--left px-3">
-            <h4 class="title h4">Продажи</h4> 
-            <p>
+          <div  class="about-approach__item about-approach__item--left px-3">
+            <h4  data-aos="zoom-in" class="title h4">Продажи</h4> 
+            <p  data-aos="zoom-in">
               Считаем рентабельность каждого канала и&nbsp;перенаправляем инвестиции только в&nbsp;прибыльные.
               Автоматизируем отдел продаж, чтобы не&nbsp;терять заявки. Обучаем работе с&nbsp;сервисами,
               пишем скрипты для общения с&nbsp;клиентами.
             </p>
           </div>
-          <div class="about-approach__item about-approach__item--center px-3">
-            <h4 class="title h4">
+          <div  class="about-approach__item about-approach__item--center px-3">
+            <h4 data-aos="zoom-in" class="title h4">
               Perugino
             </h4>
           </div>
-          <div class="about-approach__item about-approach__item--right px-3">
-            <h4 class="title h4">Измеримое продвижение</h4> 
-            <p>Задействуем множество каналов и&nbsp;отслеживаем эффективность каждого. Используем много
+          <div  class="about-approach__item about-approach__item--right px-3">
+            <h4  data-aos="zoom-in" class="title h4">Измеримое продвижение</h4> 
+            <p  data-aos="zoom-in">Задействуем множество каналов и&nbsp;отслеживаем эффективность каждого. Используем много
             разных каналов: баннеры, контекстные объявления, посты в&nbsp;соцсетях, публикации в&nbsp;СМИ.
             Делаем сильный контент, который вызывает желание купить.
             </p>
           </div>
           <div  class="about-approach__item about-approach__item--bottom px-3">
-            <h4 class="title h4">Бренд</h4> 
-            <p>Накапливаем цифровую аудиторию бренда и&nbsp;ведём с&nbsp;ней регулярную коммуникацию. Для
+            <h4  data-aos="zoom-in" class="title h4">Бренд</h4> 
+            <p  data-aos="zoom-in">Накапливаем цифровую аудиторию бренда и&nbsp;ведём с&nbsp;ней регулярную коммуникацию. Для
             этого создаём единый стиль и&nbsp;даём полезную информацию о&nbsp;продукте, которые
             транслируем через все каналы: сайт, социальные сети, реклама.
             </p>
@@ -183,12 +194,25 @@
         </div>
       </div>
     </div>
-        
     <!-- end about-approach -->
+
+
   
+    <div id="price__wrap">
+      <div class="container mt-5 pt-5 pl-0">
+        <div class="contact__headline">
+          <h1 data-aos="zoom-in" data-aos-duration="1000" >УСЛУГИ</h1>
+          <h1 data-aos="zoom-in" data-aos-duration="1100" >УСЛУГИ</h1>
+          <h1 data-aos="zoom-in" data-aos-duration="1200" >УСЛУГИ</h1>
+        </div>
+      </div>
+    </div>
+  
+
+
     <!-- start contact us wrap -->
     <div id="contact__wrap">
-      <div class="container mt-5 pt-5 pl-0" style="min-height: 60vh">
+      <div class="container mt-5 pt-5 pl-0" style="min-height: 10vh">
         <div class="contact__headline">
           <h1 data-aos="zoom-in" data-aos-duration="1000">КОНТАКТЫ</h1>
           <h1 data-aos="zoom-in" data-aos-duration="1100">КОНТАКТЫ</h1>
@@ -209,6 +233,8 @@
         </div>
       </div>
     </div>
+  
+  
   <div ref="cursor__on_cases" class="cursor__on_cases"></div>
     
   </div>
@@ -300,26 +326,6 @@ export default {
 </script>
 
 <style>
-
-.cursor__on_cases {
-    width: 80px;
-    height: 80px;
-    margin-left: -20px;
-    margin-top: -20px;
-    border: 1px solid white;
-    border-radius: 50%;
-    position: absolute;
-    z-index: 6;
-    pointer-events: none;
-    opacity: 0;
-}
-
-.active{
-  background-image: url('~static/beh.png');
-  background-size: cover;
-  opacity: 1;
-}
-
 .contact_btn {
   background-color: transparent; 
   border-color: #fff;
@@ -365,6 +371,8 @@ export default {
     display: block;
   }
 }
+
+
 /* wrap hedaer  */
 .header-wrap {
   position: fixed;
@@ -415,6 +423,7 @@ export default {
   transition: ease 0.3s;
   background-color: #2e343a !important;
 }
+
 
 /* main container  */
 .container {
@@ -501,13 +510,27 @@ export default {
     transform: translateX(20px);
   }
 }
+
+
 /* wrap case */
+
 .case__headline{
   position:absolute;
   right: 30px
 }
 .case__headline_mobile{
   display: none;
+}
+.case__img{
+  width: 600px; 
+  height: 400px; 
+  background-size: cover; 
+  image-rendering: -webkit-optimize-contrast;  
+}
+.case__text{
+  position: absolute; 
+  font-family: Formular, sans-serif; 
+  font-size: 0.7em
 }
 .case__headline h1:nth-child(1){
   position:absolute; right: 30px; top: -100px; font-size: 5em; font-family: Helvetica-Black; -webkit-text-stroke: 2px #fff; color: transparent
@@ -536,9 +559,31 @@ export default {
   .case__headline_mobile{
     display: block;
   }
-
+  .case__img{
+    width: 100%; 
+    height: 200px;
+  }
+  #case__wrap .container{
+    min-height: auto !important
+  }
 }
-
+.cursor__on_cases {
+  width: 80px;
+  height: 80px;
+  margin-left: -20px;
+  margin-top: -20px;
+  border: 1px solid white;
+  border-radius: 50%;
+  position: absolute;
+  z-index: 6;
+  pointer-events: none;
+  opacity: 0;
+}
+.active{
+  background-image: url('~static/beh.png');
+  background-size: cover;
+  opacity: 1;
+}
 
 
 
@@ -618,7 +663,7 @@ export default {
 }
 @media screen and (max-width: 1024px){
   .about-approach .outer-circle {
-      display: none;
+    display: none;
   }
   .about-approach .inner-circle {
     padding: 0;
@@ -651,8 +696,6 @@ export default {
       width: 100%;
       position: relative;
   }
-  .about-approach__item+.about-approach__item {
-    margin-top: 90px;
-  }
+
 }
 </style>
