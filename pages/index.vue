@@ -1,6 +1,11 @@
 <template>
   <div style="overflow: hidden">
-    
+    <transition  name="fadeOut" >
+      <div v-if="load" class="wrap-loading">
+        <img src="load.gif" class="loading">
+        <h4 class="loading-text">Загрузка...</h4>
+      </div>
+    </transition>
     <!-- start header wrap -->
     <div class="header-wrap pl-3 pr-3 py-4" style="background-color: #0d0d0d;">
       <div class="header-front">
@@ -37,7 +42,7 @@
                 </b-row>
                 <b-row class="d-flex justify-content-center mt-5">
                   <div @click="show_sidebar = false, backdrop_sidebar= false">
-                    <nuxt-link to="/" v-scroll-to="{ el: '#price__wrap', offset: -200 }" style="text-decoration: underline; color: #fff">прайс лист</nuxt-link>
+                    <nuxt-link to="/" v-scroll-to="{ el: '#price__wrap', offset: -200 }" style="text-decoration: underline; color: #fff">услуги</nuxt-link>
                   </div>
                 </b-row>
                 <b-row class="d-flex justify-content-center mt-5">
@@ -58,22 +63,22 @@
     </div>
     <!-- end header wrap -->
 
-  
-  
+
+
     <!-- start main wrap -->
-    <div class="container">
+    <div class="container mb-5 pb-5">
       <b-row class="mt-5 pt-5 d-flex justify-content-center">
-        <h1 class="main-text">Помогаем бизнесу выделяться!</h1>
+        <h1 class="main-text text-center">Мы — digital студия. <br> Помогаем бизнесу выделяться!</h1>
       </b-row>
       <div class="row mt-3 d-flex justify-content-center">
         <div class="wrap-canvas">
           <no-ssr>
             <model-gltf
-              :src="kek"
+              :src="obj3d"
               :position="{ x: 0, y: -0.4, z: 1 }"
               :backgroundAlpha="1"
               backgroundColor="#2e102b"
-              @on-load="onLoad"
+              @on-load="EventLoading()"
               :rotation="rotation"
             ></model-gltf>
           </no-ssr>
@@ -199,11 +204,48 @@
 
   
     <div id="price__wrap">
-      <div class="container mt-5 pt-5 pl-0">
-        <div class="contact__headline">
+      <div class="container mt-5 pt-5 pl-0" style="min-height: 50vh !important">
+        <div class="price__headline">
           <h1 data-aos="zoom-in" data-aos-duration="1000" >УСЛУГИ</h1>
           <h1 data-aos="zoom-in" data-aos-duration="1100" >УСЛУГИ</h1>
           <h1 data-aos="zoom-in" data-aos-duration="1200" >УСЛУГИ</h1>
+        </div>
+        <div data-aos="fade-up" data-aos-duration="1000" class="about-approach__headline_mobile text-center mb-5">наши услуги</div>
+        <div class="wrap__services">
+          <div class="items">
+              <div data-aos="fade-up" data-aos-duration="1000" class="item ml-3">
+                  <a href="/" v-scroll-to="{ el: '#contact__wrap', offset: -100 }">
+                      <img src="service.png" width="120" height="120" alt="">
+                      <span class="und ml-3"><span>Лендинг<br>от 30 000₽</span></span>
+                  </a>
+                  <p>Сайт визитка или сайт заявка, уникальный дизайн и качественная вёрстка.</p>
+              </div>
+              <div data-aos="fade-up" data-aos-duration="1000" class="item ml-3 d-flex justify-content-end">
+                <div>
+                  <a href="/" v-scroll-to="{ el: '#contact__wrap', offset: -100 }">
+                      <img src="service_system.png" width="120" height="120" alt="">
+                      <span class="und ml-3"><span>Сайт система <br>от 80 000 ₽</span></span>
+                  </a>
+                  <p>Реализуем сайт со сложной системой (магазин, CRM и т.д.).</p>
+                </div>
+              </div>
+              <div data-aos="fade-up" data-aos-duration="1000" class="item ml-3">
+                  <a href="/" v-scroll-to="{ el: '#contact__wrap', offset: -100 }">
+                      <img src="service_seo.png" width="120" height="120" alt="">
+                      <span class="und ml-3"><span>SEO <br>от 25 000₽</span></span>
+                  </a>
+                  <p>Выведем ваш сайт в топ поисковых систем.</p>
+              </div>
+              <div data-aos="fade-up" data-aos-duration="1000" class="item ml-3 d-flex justify-content-end">
+                <div>
+                  <a href="/" v-scroll-to="{ el: '#contact__wrap', offset: -100 }">
+                      <img src="service_ads.png" width="120" height="120" alt="">
+                      <span class="und ml-3"><span>Реклама <br>от 30 000 ₽</span></span>
+                  </a>
+                  <p>Распростроним ваш сайт по каналам маркетинга (Google Ads, Yandex Direct и т.д.).</p>
+                  </div>
+              </div>
+          </div>
         </div>
       </div>
     </div>
@@ -212,30 +254,47 @@
 
     <!-- start contact us wrap -->
     <div id="contact__wrap">
-      <div class="container mt-5 pt-5 pl-0" style="min-height: 10vh">
+      <div class="container mt-5 pt-5 pl-0" style="min-height: 50vh !important">
         <div class="contact__headline">
           <h1 data-aos="zoom-in" data-aos-duration="1000">КОНТАКТЫ</h1>
           <h1 data-aos="zoom-in" data-aos-duration="1100">КОНТАКТЫ</h1>
           <h1 data-aos="zoom-in" data-aos-duration="1200">КОНТАКТЫ</h1>
         </div>
-        <div data-aos="fade-up" data-aos-duration="1000" class="contact__headline_mobile text-center mb-5">Наши контакты</div>
-        <div class="d-flex justify-content-start mt-5 px-3">
-          <div data-aos="fade-up" data-aos-duration="1000" style="width: 600px; height: 400px; ">
-            <p>Хотите улучшить свой проект? В кратчайшие сроки решим Ваши потребности - пишите нам нам почту (отвечаем быстро)! </p> 
-            <a href="mailto:krakhimov.it@gmail.com?subject=Давайте%20работать%20вместе!">
-              <b-button class="px-5 contact_btn" squared>отправить письмо</b-button>
-            </a> 
-            <div class="pt-5">
-              <p class="mb-0" style="color: #ccc; font-size: 12px">Design and development by <a style="color: #ccc; text-decoration: underline" href="https://www.instagram.com/kamol1916/">Kamol Rakhimov</a> </p>
-              <p class="mb-0" style="color: #ccc; font-size: 12px">@2020 All rights reserved</p>
-            </div>
+        <div data-aos="fade-up" data-aos-duration="1000" class="contact__headline_mobile text-center mb-5">Оставить заявку</div>
+        <div class="d-flex justify-content-end mb-5 px-3">
+          <div data-aos="fade-up" data-aos-duration="1000" style="max-width: 600px;  ">
+            <p>В кратчайшие сроки решим Ваши потребности (отвечаем быстро)! </p>
+            <div style="max-width: 600px; ">
+              <div class="form pt-3" >
+                <input v-model="postBody.name" type="text" name="name" placeholder="Ваше имя" required />
+                <input v-model="postBody.email" name="email" placeholder="Ваша почта" required type="email" />
+                <textarea v-model="postBody.message" name="message" placeholder="Ваше сообщение..." required></textarea>
+                <b-button @click="SendToMail()" class="px-4 contact_btn py-2" squared>Отправить письмо</b-button>
+              </div>
+              <div class="pt-5">
+                <a href="">
+                  <img src="telegram_icon.png" widht="60" height="60" alt="">
+                </a>
+                <a href="https://www.instagram.com/perugino.club/">
+                  <img src="instagram_icon.png" widht="60" height="60" alt="">
+                </a>
+                <a href="">
+                  <img src="vk_icon.png" widht="60" height="60" alt="">
+                </a>
+              </div>
+              <div class="pt-3">
+                <p class="mb-0" style="color: #ccc; font-size: 12px">Design & development by <a style="color: #ccc; text-decoration: underline" href="https://www.instagram.com/kamol1916/">Kamol Rakhimov</a> </p>
+                <p class="mb-0" style="color: #ccc; font-size: 12px">@2020 All rights reserved</p>
+              </div>
+            </div> 
+  
           </div>
         </div>
       </div>
     </div>
   
-  
   <div ref="cursor__on_cases" class="cursor__on_cases"></div>
+
     
   </div>
 </template>
@@ -244,15 +303,22 @@
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { ModelGltf } from "vue-3d-model";
-// import ogImage from '~static/heading__img.png';
+import axios from 'axios';
+
 export default {
   components: { ModelGltf },
   data() {
     return {
+      load: true,
+      postBody:{
+        name: null,
+        email: null,
+        message: null,
+      },
       show_sidebar: false,
       backdrop_sidebar: false,
       count: 4,
-      kek: "scene.gltf",
+      obj3d: "scene.gltf",
       rotation: {
         x: 0,
         y: 0,
@@ -272,6 +338,7 @@ export default {
     }
   },
   mounted() {
+    this.onLoad()
     window.addEventListener("scroll", this.handleScroll);
     setTimeout((this.stoke_vsb = true), 3000);
     if(window.innerWidth>768){
@@ -299,6 +366,19 @@ export default {
 
   },
   methods: {
+    EventLoading(){
+      document.getElementsByTagName('html')[0].style.overflowY = 'scroll';
+      this.load = false;
+    },
+    SendToMail(){
+      axios.post("/sendToMailMessage", this.postBody)
+      .then( () => { 
+        alert("Спасибо за оставленную завяку, мы Вам ответим в кратчайшие сроки!")
+      })
+      .catch(e =>{
+        console.log(e)
+      });
+    },
     handleScroll() {
       if (window.scrollY > this.scrollY) {
         this.scrollY = window.scrollY;
@@ -317,15 +397,118 @@ export default {
     onLoad() {
       this.rotate();
     },
-    rotate() {
+    rotate () {
       this.rotation.y += 0.01;
-      requestAnimationFrame(this.rotate);
-    },
+      requestAnimationFrame( this.rotate );
+    }
   },
 };
 </script>
 
 <style>
+
+.wrap__services {
+    overflow: hidden;
+    width: 100%;
+    min-width: 48%;
+}
+.wrap__services .items {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+.wrap__services .items .item {
+    width: 42%;
+    margin: 0 40px 80px;
+}
+.wrap__services .items .item a {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    font-size: 24px;
+    line-height: 1.5;
+    font-weight: 600;
+    color: white;
+    text-decoration: none;
+}
+.und{
+  text-decoration: underline;
+}
+
+.item p {
+    color: #6f6f6f;
+    line-height: 1.8;
+    margin: 42px 0 0 42px;
+}
+@media only screen and (max-width: 1150px){
+  .wrap__services {
+      margin: 40px 0 0;
+      width: 100%;
+  }
+
+}
+
+@media only screen and (max-width: 708px){
+  .wrap__services .items {
+      margin: 0;
+  }
+  .wrap__services .items .item {
+    width: 100%;
+    margin: 0 0 50px;
+  }
+  .item a img {
+    width: 80px;
+    height: 80px;
+  }
+  .item .und {
+    max-width: 100%;
+  }
+
+  .item p {
+    margin: 15px 0 0 25px;
+  }
+}
+.price__headline{
+  position:absolute;
+  right: 30px
+}
+.price__headline_mobile{
+  display: none;
+}
+.price__headline h1:nth-child(1){
+  position:absolute; right: 30px; top: -140px; font-size: 4.5em; font-family: Helvetica-Black; -webkit-text-stroke: 2px #fff; color: transparent
+}
+.price__headline h1:nth-child(2){
+  position:absolute; right: 30px; top: -60px; font-size: 4.5em; font-family: Helvetica-Black;
+}
+.price__headline h1:nth-child(3){
+  position:absolute; right: 30px; top: 20px; font-size: 4.5em; font-family: Helvetica-Black; -webkit-text-stroke: 2px #fff; color: transparent
+}
+@media screen and (max-width: 1448px){
+  .price__headline h1:nth-child(1){
+    position:absolute; right: 30px; top: -120px; font-size: 3em;
+  }
+  .price__headline h1:nth-child(2){
+    position:absolute; right: 30px; top: -60px; font-size: 3em; 
+  }
+  .price__headline h1:nth-child(3){
+    position:absolute; right: 30px; top: 0; font-size: 3em;
+  }
+}
+/* исправить css - везде много говна, убрать дублирование */
+@media screen and (max-width: 768px){
+  .price__headline{
+    display: none;
+  }
+  .price__headline_mobile{
+    display: block;
+  }
+}
+
+
+
+
+/* Contanct wrap */
 .contact_btn {
   background-color: transparent; 
   border-color: #fff;
@@ -337,29 +520,62 @@ export default {
 }
 .contact__headline{
   position:absolute;
-  right: 30px
+  left: 30px
+}
+.form {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+.form input[type=email], input[type=text], input[type=url], select, textarea {
+  width: 48%;
+  background: none;
+  padding: 0 20px;
+  float: left;
+  height: 50px;
+  border: 1px solid #fff;
+  transition: all .15s ease;
+  color: #fff;
+  line-height: 1.2;
+  letter-spacing: .025em;
+  display: block;
+  margin-bottom: 20px;
+  font-size: 15px;
+  font-weight: 400;
+  outline: none;
+}
+.form  textarea {
+  padding-top: 20px;
+  height: 160px;
+  resize: none;
+  width: 100%;
+  outline: none;
+  font-size: 17px
 }
 .contact__headline_mobile{
   display: none;
 }
 .contact__headline h1:nth-child(1){
-  position:absolute; right: 30px; top: -100px; font-size: 5em; font-family: Helvetica-Black; -webkit-text-stroke: 2px #fff; color: transparent
+  position:absolute; left: 30px; top: -140px; font-size: 4.5em; font-family: Helvetica-Black; -webkit-text-stroke: 2px #fff; color: transparent
 }
 .contact__headline h1:nth-child(2){
-  position:absolute; right: 30px; top: 0; font-size: 5em; font-family: Helvetica-Black;
+  position:absolute; left: 30px; top: -60px; font-size: 4.5em; font-family: Helvetica-Black;
 }
 .contact__headline h1:nth-child(3){
-  position:absolute; right: 30px; top: 100px; font-size: 5em; font-family: Helvetica-Black; -webkit-text-stroke: 2px #fff; color: transparent
+  position:absolute; left: 30px; top: 20px; font-size: 4.5em; font-family: Helvetica-Black; -webkit-text-stroke: 2px #fff; color: transparent
 }
 @media screen and (max-width: 1448px){
   .contact__headline h1:nth-child(1){
-    position:absolute; right: 30px; top: -120px; font-size: 3em;
+    position:absolute; left: 30px; top: -120px; font-size: 3em;
   }
   .contact__headline h1:nth-child(2){
-    position:absolute; right: 30px; top: -60px; font-size: 3em; 
+    position:absolute; left: 30px; top: -60px; font-size: 3em; 
   }
   .contact__headline h1:nth-child(3){
-    position:absolute; right: 30px; top: 0; font-size: 3em;
+    position:absolute; left: 30px; top: 0; font-size: 3em;
   }
 }
 /* исправить css - везде много говна, убрать дублирование */
@@ -530,16 +746,16 @@ export default {
 .case__text{
   position: absolute; 
   font-family: Formular, sans-serif; 
-  font-size: 0.7em
+  font-size: 0.7em;
 }
 .case__headline h1:nth-child(1){
-  position:absolute; right: 30px; top: -100px; font-size: 5em; font-family: Helvetica-Black; -webkit-text-stroke: 2px #fff; color: transparent
+  position:absolute; right: 30px; top: -100px; font-size: 4.5em; font-family: Helvetica-Black; -webkit-text-stroke: 2px #fff; color: transparent
 }
 .case__headline h1:nth-child(2){
-  position:absolute; right: 30px; top: 0; font-size: 5em; font-family: Helvetica-Black;
+  position:absolute; right: 30px; top: -10px; font-size: 4.5em; font-family: Helvetica-Black;
 }
 .case__headline h1:nth-child(3){
-  position:absolute; right: 30px; top: 100px; font-size: 5em; font-family: Helvetica-Black; -webkit-text-stroke: 2px #fff; color: transparent
+  position:absolute; right: 30px; top: 80px; font-size: 4.5em; font-family: Helvetica-Black; -webkit-text-stroke: 2px #fff; color: transparent
 }
 @media screen and (max-width: 1448px){
   .case__headline h1:nth-child(1){
@@ -594,14 +810,17 @@ export default {
 .about-approach__headline_mobile{
   display: none;
 }
+.title{
+  text-decoration: underline;
+}
 .about-approach__headline h1:nth-child(1){
-  width: fit-content; position:absolute; left: 30px; top: -100px; font-size: 5em; font-family: Helvetica-Black; -webkit-text-stroke: 2px #fff; color: transparent
+  width: fit-content; position:absolute; left: 30px; top: -140px; font-size: 4.5em; font-family: Helvetica-Black; -webkit-text-stroke: 2px #fff; color: transparent
 }
 .about-approach__headline h1:nth-child(2){
-  width: fit-content; position:absolute; left: 30px;  font-size: 5em; font-family: Helvetica-Black;
+  width: fit-content; position:absolute; left: 30px; top: -60px; font-size: 4.5em; font-family: Helvetica-Black;
 }
 .about-approach__headline h1:nth-child(3){
-  width: fit-content; position:absolute; left: 30px; top: 100px; font-size: 5em; font-family: Helvetica-Black; -webkit-text-stroke: 2px #fff; color: transparent
+  width: fit-content; position:absolute; left: 30px; top: 20px; font-size: 4.5em; font-family: Helvetica-Black; -webkit-text-stroke: 2px #fff; color: transparent
 }
 @media screen and (max-width: 1448px){
   .about-approach__headline h1:nth-child(1){

@@ -1,11 +1,11 @@
 <template>
   <div>
-    <transition  name="fadeOut" >
+    <!-- <transition  name="fadeOut" >
       <div v-if="load" class="wrap-loading">
-        <div class="loading"></div>
+        <img src="load.gif" class="loading">
         <h4 class="loading-text">Загрузка...</h4>
       </div>
-    </transition>
+    </transition> -->
     <div>
       <div ref="cursor" class="cursor"></div>
       <Nuxt />
@@ -22,10 +22,10 @@ export default {
   },
   mounted() {
     
-    setTimeout(() => {
-      document.getElementsByTagName('html')[0].style.overflowY = 'scroll';
-      this.load = false
-    }, 1000);
+    // setTimeout(() => {
+    //   document.getElementsByTagName('html')[0].style.overflowY = 'scroll';
+    //   this.load = false
+    // }, 1000);
 
     if(window.innerWidth>768){
       const cursor = this.$refs.cursor;
@@ -102,7 +102,6 @@ body {
   margin: 100px auto 0 auto;
   width: 30%;
   height: 60%;
-  background-image: url("~static/load.gif");
   background-size: 100% 100%;
 }
 .loading-text {
