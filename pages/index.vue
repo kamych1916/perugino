@@ -74,7 +74,7 @@
         <div class="wrap-canvas">
           <no-ssr>
             <model-gltf
-              :src="obj3d"
+              :src="'scene.gltf'"
               :position="{ x: 0, y: -0.4, z: 1 }"
               :backgroundAlpha="1"
               backgroundColor="#2e102b"
